@@ -1,0 +1,41 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <stack>
+using namespace std;
+
+
+int main() {
+    stack<long int> s, max;   //the max stack will store the max value on top while stack s itirates
+    max.push(-1);             //so that stack has a default value -1 for comparison
+    int number_of_querries; 
+    cin>>number_of_querries;
+    int  i = 0;
+    while(i<number_of_querries)
+    {
+        int querry;
+        cin>>querry;
+        if(querry==1){
+            int element ;    //element for pushing into stack
+            cin>>element;
+            s.push(element);//pushes element into s
+            
+                if(element >= max.top()) //checks if element is greater that max element in stack
+                max.push(element);
+            
+        }
+        else if(querry==2){
+            int q = s.top();        //takes element at top
+            if(q == max.top())      // checks if s and max both hv the same top element
+                max.pop();           
+            s.pop();
+        }
+        else if(querry==3){
+            cout << max.top() << endl;//prints max element at top of stack
+        }
+        i++;
+    }
+    return 0;
+}
