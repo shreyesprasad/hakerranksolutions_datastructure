@@ -1,0 +1,41 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <queue>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
+    queue<int>q;
+    int n,querry,e;
+    cin>>n;
+    while(n--)
+    {
+        cin>>querry;
+        switch(querry)
+        {
+            case 1:
+            {
+                cin>>e;
+                q.push(e);
+                break;
+            }
+            case 2:
+            {
+                if(!q.empty())
+                q.pop();
+                break;
+            }
+            case 3:
+            {
+                cout<<q.front()<<"\n";
+                break;
+            }
+
+        }
+    } 
+    return 0;
+}
