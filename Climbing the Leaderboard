@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+#include <vector>
+using namespace std;
+
+
+int main()
+{
+    long long int n,m,a[1000000],b,i;
+    vector<int>v;
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        cin>>a[i];
+        //if(v.back()!=a[i])
+        //v.push_back(a[i]);
+    }
+    v.push_back(a[0]);
+    for(i=1;i<n;i++)
+    {
+        if(v.back()!=a[i])
+        v.push_back(a[i]);
+    }
+    
+    cin>>m;
+    for(i=0;i<m;i++)
+    {
+        cin>>b;
+        while(b>v.back() && !v.empty())
+        {
+            v.pop_back();
+            
+        }
+        if(b==v.back())
+        cout<<v.size()<<"\n";
+        else {
+        cout<<(v.size()+1)<<"\n";
+        }
+
+    }
+ 
+
+    return 0;
+}
